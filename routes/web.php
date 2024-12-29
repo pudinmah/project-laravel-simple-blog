@@ -26,4 +26,5 @@ Route::controller(AdminController::class)->middleware('auth')->group(function ()
 
     Route::get('/create_artikel', 'create_artikel')->name('create_artikel');
 
+    Route::post('/add_post', 'add_post')->name('add_post');
 });
