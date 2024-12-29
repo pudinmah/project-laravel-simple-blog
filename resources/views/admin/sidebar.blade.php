@@ -15,7 +15,7 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                         data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">Artikel</a>
+                            <a class="nav-link" href="{{route('show_post')}}">Artikel</a>
                             <a class="nav-link" href="{{route('create_artikel')}}">Tambah Artikel</a>
                         </nav>
                     </div>

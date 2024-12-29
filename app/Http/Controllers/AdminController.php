@@ -47,4 +47,10 @@ class AdminController extends Controller
         // Redirect dengan pesan sukses
         return redirect()->back()->with('message', 'Post Added Successfully');
     }
+
+    public function show_post()
+    {
+        $posts = Post::paginate(3);
+        return view('admin.artikel.show_artikel', compact('posts'));
+    }
 }
