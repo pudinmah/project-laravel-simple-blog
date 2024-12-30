@@ -1,12 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('front.index');
-});
+Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('admin.index');
@@ -34,7 +33,7 @@ Route::controller(AdminController::class)->middleware('auth')->group(function ()
     Route::get('/delete_post/{id}', 'delete_post')->name('delete_post');
 
     Route::post('/update_post/{id}', 'update_post')->name('update_post');
-
-
-
 });
+
+
+Route::get('/blog_detail/{id}', [HomepageController::class, 'BlogDetail'])->name('blog.detail');

@@ -92,6 +92,4 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message', 'Post Updated Successfully');
     }
-
-
 }
