@@ -42,10 +42,16 @@
             <!-- Pager-->
             <div class="d-flex justify-content-between mb-4">
                 <div class="">
-                    <a class="btn btn-primary text-uppercase" href="#!">&larr; Newer Posts</a>
+                    @if (!$datas->onFirstPage())
+                    <a class="btn btn-primary text-uppercase" href="{{$datas->previousPageUrl()}}">
+                        &larr; Newer Posts
+                    </a>
+                    @endif
                 </div>
                 <div class="">
-                    <a class="btn btn-primary text-uppercase" href="#!">Older Posts &rarr;</a>
+                    @if ($datas->hasMorePages())
+                    <a class="btn btn-primary text-uppercase" href="{{$datas->nextPageUrl()}}">Older Posts &rarr;</a>
+                    @endif
                 </div>
             </div>
         </div>

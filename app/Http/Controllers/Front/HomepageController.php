@@ -10,7 +10,7 @@ class HomepageController extends Controller
 {
     public function index()
     {
-        $datas = Post::paginate(5);
+        $datas = Post::paginate(2);
 
         return view('front.index', compact('datas'));
     }
