@@ -53,4 +53,45 @@ class AdminController extends Controller
         $posts = Post::paginate(3);
         return view('admin.artikel.show_artikel', compact('posts'));
     }
+
+
+
+    public function delete_post($id)
+    {
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect()->back()->with('message', 'Post Deleted Successfully');
+    }
+
+
+    public function edit_post($id)
+    {
+        $post = Post::find($id);
+
+        return view('admin.artikel.edit_artikel', compact('post'));
+    }
+
+
+    public function update_post(Request $request, $id)
+    {
+        $data = Post::find($id);
+
+        $data->title = $request->title;
+        $data->description = $request->description;
+        // image
+        $image = $request->image;
+
+        if ($image) {
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $request->image->move('postimage', $imagename);
+
+            $data->image = $imagename;
+        }
+        $data->save();
+
+        return redirect()->back()->with('message', 'Post Updated Successfully');
+    }
+
+
 }

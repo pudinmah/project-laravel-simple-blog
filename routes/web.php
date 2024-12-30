@@ -30,4 +30,12 @@ Route::controller(AdminController::class)->middleware('auth')->group(function ()
 
     Route::get('/show_post', 'show_post')->name('show_post');
 
+    Route::get('/edit_post/{id}', 'edit_post')->name('edit_post');
+
+    Route::get('/delete_post/{id}', 'delete_post')->name('delete_post');
+
+    Route::post('/update_post/{id}', 'update_post')->name('update_post');
+
+
+
 });

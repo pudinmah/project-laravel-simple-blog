@@ -11,13 +11,6 @@
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
 
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><b>X</b></button>
-                {{ session()->get('message') }}
-            </div>
-        @endif
-
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -60,9 +53,9 @@
                                 </td>
                                 <td>
 
-                                    <a href="#" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('edit_post', $post->id) }}" class="btn btn-success">Edit</a>
 
-                                    <a href="#" class="btn btn-danger"
+                                    <a href="{{ route('delete_post', $post->id) }}" class="btn btn-danger"
                                         onclick="return confirm('Are You sure to Delete This ? ')">Delete</a>
                                 </td>
                             </tr>
