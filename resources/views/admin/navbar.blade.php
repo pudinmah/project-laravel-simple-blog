@@ -20,24 +20,19 @@
                             {{ __('Profile') }}
                         </x-responsive-nav-link>
                     </li>
-                    {{-- <li>
-                    <a class="dropdown-item" href="#!">Activity Log</a>
-                </li> --}}
+
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
                     <li>
-
-                        <form method="POST" action="{{ route('logout') }}" x-data>
+                        <form method="POST" action="{{ route('logout') }}" id="form-logout">
                             @csrf
-
-                            <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                <p class="dropdown-item">
-                                    {{ __('Log Out') }} <i class="icon-logout"></i>
-                                </p>
-                            </x-dropdown-link>
                         </form>
+
+                        <a href="#"
+                            onclick="event.preventDefault();document.getElementById('form-logout').submit()">Logout</a>
                     </li>
+
                 </ul>
             </li>
         </ul>
